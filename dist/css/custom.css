@@ -1,0 +1,94 @@
+html, body{
+    width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+}
+.container-fluid{
+    padding: 0;
+    overflow: hidden;
+}
+
+svg{
+    display: none;
+}
+
+#footer{
+    background: #292929; 
+    color: #797979;
+    font-size: 14px;
+    font-variant: small-caps;
+
+}
+#footer>p{
+    margin: 0;
+    text-align: center;
+}
+
+html::-webkit-scrollbar-track, #right::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    background-color: #292929;
+}
+
+html::-webkit-scrollbar, #right::-webkit-scrollbar
+{
+    width: 12px;
+    background-color: #292929;
+}
+
+html::-webkit-scrollbar-thumb, #right::-webkit-scrollbar-thumb
+{
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #101c2d;
+}
+
+#scroll_size{
+    opacity: 0;
+}
+
+@media screen and (min-width: 992px){
+    svg{
+        display: initial;
+    }
+    .container-fluid{
+        display: flex;
+        height: calc(100vh - 42px);
+    }    
+    #left{
+        width: 50vw;
+        position: relative;
+    }
+    #right{
+        overflow-x:hidden;
+    }
+    #right, .slider>div{
+        width: 50vw;
+        min-width: 50vw;
+    }
+    #kontakt{
+        background: none;
+    }
+    #kontakt>div:first-child{
+        position:relative;
+        z-index:1;
+    }
+    #scroll_size{
+        opacity: 0.1;
+    }
+}
+
+@media screen and (min-width: 1200px){  
+    #left{
+        width: 40vw;
+        position: relative;
+    }
+    #right, .slider>div{
+        width: 60vw;
+        min-width: 60vw;
+    }
+    #scroll_size{
+        opacity: 0.2;
+    }
+}

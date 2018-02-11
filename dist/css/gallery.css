@@ -1,0 +1,233 @@
+#right>.row{
+    margin: 0;
+}
+
+#right{
+    display:flex;
+    flex-direction: column;
+    background: #23334c;
+}
+
+#galeria-btn{
+    height: 0;
+    overflow:hidden;
+}
+.slider-cnt{
+    position: relative;
+    width: 100%;
+}
+
+.slider{
+    display:flex;
+    height:0;
+    overflow:hidden;
+    transition: height .5s, margin-left .5s;
+}
+
+.slider.show{
+    height: 400px;
+}
+.slider-close{
+    display: none;
+}
+
+.slider>div{
+    /*background: -moz-linear-gradient(top, rgba(16,28,45,1) 0%, rgba(16,28,45,0) 25%, rgba(16,28,45,0) 50%, rgba(16,28,45,0) 75%, rgba(16,28,45,1) 100%);
+    background: -webkit-linear-gradient(top, rgba(16,28,45,1) 0%,rgba(16,28,45,0) 25%,rgba(16,28,45,0) 50%,rgba(16,28,45,0) 75%,rgba(16,28,45,1) 100%);
+    background: linear-gradient(to bottom, rgba(16,28,45,1) 0%,rgba(16,28,45,0) 25%,rgba(16,28,45,0) 50%,rgba(16,28,45,0) 75%,rgba(16,28,45,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#101c2d', endColorstr='#101c2d',GradientType=0 );*/
+    background: #3c424a;
+}
+
+.img-cnt{
+    width: 100%;
+}
+
+.img-cnt>div:first-child{
+    display:none;
+}
+.img-cnt>div:nth-child(2){
+    display: flex;
+    justify-content: center;
+    min-height: 80px;
+    align-items: center;
+    background: #23334c;
+    border-right: 3px solid #23334c;
+    height: calc(calc(100vh - 349px) / 7);
+}
+.img-cnt>div:nth-child(2):hover{
+    background: #101c2d;
+    border-right: 3px solid #fff;
+}
+
+#right span{
+    color: #fff;
+}
+#right span:before, #right span:after{
+    background: #fff;
+}
+
+.slider>div{
+    display: flex;
+    justify-content: center;
+    min-width: 100vw;    
+}
+.slider>div>img{
+    max-height:400px;
+}
+.arrow{
+    max-height: 50px;
+    max-width: 50px;
+    min-width: unset !important;
+    border-radius: 50%;
+    padding: 10px 5px 10px 8px;
+    background: rgba(255, 255, 255, 0.15) !important;
+    position: absolute;
+    top: 50%;
+    transition: opacity 1s ease-out .2s, display .1s ease-out .4s;
+}
+
+.arrow>img{
+    max-width: 50px;    
+}
+.arrow-left{
+    transform: rotate(180deg) translateY(50%);
+    left: 10px;
+}
+.arrow-right{
+    transform: translateY(-50%);
+}
+
+.arrow.arrow-left, .arrow.arrow-right{
+    display: none;
+}
+
+@media screen and (min-width: 576px){
+    .arrow.arrow-show{
+        display: flex;
+        opacity: 1;
+        transition: opacity 1s ease-out .2s, display .1s ease-out .4s;        
+    }
+}
+
+@media screen and (min-width: 992px){
+    #right{
+        display: initial;
+        overflow-y: auto;
+    }
+    .img-cnt>div:nth-child(2){
+        height: calc(calc(100vh - 42px) / 7)
+    }
+}
+@media screen and (min-width: 1200px){
+    #right{
+        display:flex;
+        background-image: url('../img/bck.jpg');
+        position: relative;
+    }
+    .row{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        height: 25vh;
+    }
+    .img-cnt{
+        width: unset;
+        margin: 10px;
+        width: 30%;
+        position: relative;
+    }
+    .slider-cnt>.slider{
+        height: 100%;
+    }
+    .slider>div{
+        align-items: center;
+    }
+    .slider-cnt{
+        display: none;
+    }
+    .img-cnt>div:first-child{
+        display: initial;        
+    }
+
+    #tablice, #stol, #blat, #kominek, #katafalk, #schody, #nagrobek{
+        position: absolute;
+        height: 100%;
+        width: 100%;
+    }
+    #galeria-btn{
+        height: 12.5vh;
+        visibility: hidden;
+        position: relative;
+    }
+    .img-cnt>div:nth-child(2){
+        height: 100%;
+    }
+
+    /*galeria*/
+    #tablice:after{
+        background-image: url('../img/tablica.jpg');
+    }
+    #stol:after{
+        background-image: url('../img/stol.jpg');
+    }
+    #blat:after{
+        background-image: url('../img/blat.jpg');
+    }
+    #kominek:after{
+        background-image: url('../img/kominek.jpg');
+    }
+    #katafalk:after{
+        background-image: url('../img/katafalk.jpg');
+    }
+    #schody:after{
+        background-image: url('../img/schody.jpg');
+    }
+    #nagrobek:after{
+        background-image: url('../img/nagrobek.jpg');
+    }
+    #tablice:after, #stol:after, #blat:after, #kominek:after, #katafalk:after, #schody:after, #nagrobek:after{
+        background-size:cover;
+        width: 100%;
+        height: 100%;
+        content: "";
+        opacity: 0.4;
+        position: absolute;
+        z-index: 0; 
+    }
+    .img-cnt>div:nth-child(2):hover, .img-cnt>div:nth-child(2){
+        border: none;
+        background: #000;
+    }
+    .slider-cnt{
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        transition: opacity .5s linear 0s; 
+        display: initial;
+        z-index: -1;
+    }
+
+    .slider-cnt.bg-gallery{  
+        top: 0;
+        height: calc(100vh - 42px);
+        opacity: 1;
+        z-index: 1;
+    }
+    .arrow.arrow-show{
+        align-items: initial;
+    }
+    .slider-close{
+        display: flex !important;
+        position: absolute;
+        right: 0;
+        width: 50px !important;
+        height: 50px;
+        max-width: 50px;
+        min-width: 50px !important;
+        background: rgba(255, 255, 255, 0.15) !important;
+    }
+    .slider-close>img{
+        width:25px;
+    }
+}
